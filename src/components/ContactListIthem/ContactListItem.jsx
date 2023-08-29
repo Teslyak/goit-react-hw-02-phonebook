@@ -18,7 +18,7 @@ export const ContactListItem = ({ item: { number, name }, onDeleteContact  }) =>
 ContactListItem.propTypes = {
   onDeleteContact: propTypes.func,
   item: propTypes.shape ({
-  number: propTypes.number,
+  number: propTypes.string,
   name: propTypes.string,
   id: propTypes.string
     

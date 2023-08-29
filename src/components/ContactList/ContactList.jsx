@@ -3,6 +3,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 
 export const ContactList = (props) => {
+   
     return (
         <>   
         <ul>
@@ -17,10 +18,9 @@ export const ContactList = (props) => {
 
 ContactList.propTypes = {
     onDeleteContact: propTypes.func,
-    getFilterText: propTypes.arrayOf(
-        propTypes.shape ({
+    getFilterText: propTypes.arrayOf(propTypes.shape({
         id: propTypes.string,
         name: propTypes.string,
-        number:propTypes.number
-    }))
+        number: propTypes.string
+    })).isRequired
  }
