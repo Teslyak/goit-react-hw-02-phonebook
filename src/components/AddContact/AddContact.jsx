@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import { FormAddContact, InputAddContact, LabelAddContact, LabelAddContactTel, ButtonAddContact } from './AddContact.styled';
 
 
 
@@ -13,14 +14,12 @@ number: ''
 
 
     handelChangeInput = (e) => {
-    console.log(e.currentTarget);
         this.setState({
             [e.target.name]: e.currentTarget.value
         })
     }
     
     handleAddInList = (e) => {
-
     e.preventDefault();
     this.props.addNewContact({ id: nanoid(5), ...this.state });
     this.setState({
@@ -34,32 +33,33 @@ number: ''
         
         return (
             <>
-    <form onSubmit={this.handleAddInList}> 
-   <lable >Name:
-    <input
+    <FormAddContact onSubmit={this.handleAddInList}> 
+   <LabelAddContact>Name:
+    <InputAddContact
     type="text"
     name="name"
     onChange={this.handelChangeInput}
-    // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+    pattern= "^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+    title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
     value={this.state.name}
     required
           />
-                    </lable> 
+    </LabelAddContact>
                     
-    <label>Number:
-    <input
+    <LabelAddContactTel>Number:
+    <InputAddContact
     type="tel"
     name="number"
     onChange={this.handelChangeInput}
-//   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-//   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+  pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+    value={this.state.number}
   required
 />
                         
-</label>
-          <button type="submit" >Add contact</button>  
-        </form>   
+</LabelAddContactTel>
+          <ButtonAddContact type="submit" >Add contact</ButtonAddContact>  
+        </FormAddContact> 
            
             </>
 
