@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const LabelAddContact = styled.label`
 display: flex;
-gap: 24px;
+gap: 27px;
 font-size: 15px;
 font-weight: bold;
  
 `;
 export const LabelAddContactTel = styled.label`
 display: flex;
-gap: 8px;
+gap: 10px;
 font-size: 15px;
 font-weight: bold;
  
