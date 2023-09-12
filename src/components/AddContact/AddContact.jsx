@@ -67,6 +67,3 @@ export class AddContact extends Component {
   }
 }
 
-export const firs = second => {
-  third;
-};
